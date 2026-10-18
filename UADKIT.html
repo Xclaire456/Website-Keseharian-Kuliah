@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UAD Kit: Survival Kit Mahasiswa Informatika</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Figtree:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script>try{var t=localStorage.getItem('uadtheme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+:root{--bg:#eaf1ff;--card:#fff;--ink:#14213d;--mut:#55618a;--ln:#14213d;--sh:#14213d;--grid:rgba(20,33,61,.08);--a1:#ffc83d;--a2:#ff6b8b;--a3:#4cc9f0;--a4:#b8f35c;--on:#14213d;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1530;--card:#18204a;--ink:#eef1ff;--mut:#9aa6d6;--ln:#8b97e8;--sh:#04071a;--grid:rgba(139,151,232,.1);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1530;--card:#18204a;--ink:#eef1ff;--mut:#9aa6d6;--ln:#8b97e8;--sh:#04071a;--grid:rgba(139,151,232,.1);color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 Figtree,system-ui,sans-serif;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px;transition:background-color .3s,color .3s}
+main{max-width:960px;margin:0 auto;padding:16px 16px 130px}
+h1,h2,h3,.big{font-family:'Bricolage Grotesque',Figtree,sans-serif;font-weight:800;line-height:1.1;margin:0}
+h1{font-size:clamp(2rem,7vw,3.4rem)}h2{font-size:1.7rem;margin:6px 0 14px}h3{font-size:1.1rem}
+small,.mut{color:var(--mut)}
+header{display:flex;justify-content:space-between;align-items:center;padding:6px 0 14px}
+.logo{font:800 1.4rem 'Bricolage Grotesque',sans-serif}.logo i{font-style:normal;background:var(--a2);color:var(--on);padding:0 8px;border-radius:8px;margin-left:4px;display:inline-block;transform:rotate(-4deg)}
+.card{background:var(--card);border:2px solid var(--ln);border-radius:16px;box-shadow:4px 4px 0 var(--sh);padding:16px}
+.btn,.chip,.ck,.x{font:inherit;color:inherit;cursor:pointer}
+.btn{font-weight:700;background:var(--a1);color:var(--on);border:2px solid var(--ln);border-radius:12px;padding:10px 16px;box-shadow:3px 3px 0 var(--sh);transition:transform .1s,box-shadow .1s}
+.btn:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--sh)}
+.btn.alt{background:var(--a3)}.btn.pk{background:var(--a2)}
+.chip{background:var(--card);border:2px solid var(--ln);border-radius:99px;padding:6px 14px;font-weight:600}
+.chip.on{background:var(--a4);color:var(--on)}
+input,select{font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--ln);border-radius:10px;padding:9px 10px;min-width:0;width:100%}
+:focus-visible{outline:3px solid var(--a3);outline-offset:2px}
+.row{display:flex;flex-wrap:wrap;gap:8px}.row>input{flex:1 1 150px}.row>select{flex:0 1 130px}
+.g{display:grid;gap:14px}.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.panel{display:none}.panel.on{display:block}
+.term{background:#0b1020;color:#c9f7d4;border:2px solid var(--ln);border-radius:16px;box-shadow:4px 4px 0 var(--sh);overflow:hidden;font:500 .85rem/1.6 'JetBrains Mono',ui-monospace,monospace}
+.term .bar{display:flex;gap:6px;align-items:center;padding:8px 12px;background:#1a2140;color:#8b97e8}
+.term .bar b{width:11px;height:11px;border-radius:50%;background:var(--a2)}.term .bar b+b{background:var(--a1)}.term .bar b+b+b{background:var(--a4)}
+.term pre{margin:0;padding:12px 14px;min-height:150px;white-space:pre-wrap;word-break:break-word}
+.cur{animation:bl 1s steps(2) infinite}@keyframes bl{50%{opacity:0}}
+.clk{font:800 2.4rem 'Bricolage Grotesque',sans-serif}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tile{text-align:left;font:inherit;color:inherit;cursor:pointer}.tile .big{font-size:1.9rem;display:block}
+.tile:nth-child(1){background:var(--a3);color:var(--on)}.tile:nth-child(2){background:var(--a4);color:var(--on)}.tile:nth-child(3){background:var(--a1);color:var(--on)}
+.tile small{color:inherit;opacity:.8}
+.xp{height:16px;border:2px solid var(--ln);border-radius:99px;overflow:hidden;background:var(--bg);margin:8px 0}.xp i{display:block;height:100%;background:var(--a2);transition:width .5s}
+.list{display:grid;gap:10px;margin-top:14px}
+.it{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;background:var(--card);border:2px solid var(--ln);border-radius:14px;padding:10px 12px;box-shadow:3px 3px 0 var(--sh)}
+.it.dn b{text-decoration:line-through;opacity:.55}
+.it small{display:block}
+.ck{width:30px;height:30px;border:2px solid var(--ln);border-radius:8px;background:var(--bg);font-weight:800}
+.dn .ck{background:var(--a4);color:var(--on)}
+.x{background:none;border:0;font-size:1.1rem;opacity:.6;padding:6px}
+.tag{display:inline-block;border:2px solid var(--ln);border-radius:8px;padding:0 8px;font-size:.78rem;font-weight:700;background:var(--a1);color:var(--on)}
+.tag.u{background:var(--a2)}.tag.l{background:var(--a4)}
+.ring{display:block;margin:0 auto;width:min(260px,70vw);height:auto}
+.ring text{font:800 34px 'Bricolage Grotesque',sans-serif;fill:var(--ink)}
+.ring .tr{stroke:var(--grid)}.ring .pg{stroke:var(--a2);transition:stroke-dashoffset .3s linear}
+.mr{display:grid;grid-template-columns:1fr 64px 84px auto;gap:6px;margin-bottom:8px}
+.res{text-align:center;font-size:2.6rem}.res small{display:block;font:600 .9rem Figtree}
+.bar2{display:grid;grid-template-columns:90px 1fr 80px;gap:8px;align-items:center;font-size:.9rem;margin:6px 0}
+.bar2 i{display:block;height:12px;background:var(--a3);border:2px solid var(--ln);border-radius:99px}
+.food{text-align:center;padding:26px 16px}.food .em{font-size:4.2rem;line-height:1}.food .big{font-size:1.8rem;margin:8px 0 4px}
+.food.win{animation:pp .4s}@keyframes pp{50%{transform:scale(1.04) rotate(-1.5deg)}}
+.dock{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(560px,100%);display:flex;gap:4px;padding:8px 8px calc(8px + env(safe-area-inset-bottom,0px));background:var(--card);border:2px solid var(--ln);border-bottom:0;border-radius:18px 18px 0 0;z-index:5}
+.dock button{flex:1;font:600 .7rem Figtree,sans-serif;color:var(--ink);background:none;border:2px solid transparent;border-radius:12px;padding:4px 0;cursor:pointer;display:grid;gap:0}
+.dock button span{font-size:1.3rem}.dock button.on{background:var(--a1);color:var(--on);border-color:var(--ln)}
+#toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--a4);color:var(--on);border:2px solid var(--ln);border-radius:99px;padding:8px 18px;font-weight:700;opacity:0;pointer-events:none;transition:.3s;z-index:6}
+#toast.s{opacity:1;transform:translate(-50%,0)}
+.empty{text-align:center;color:var(--mut);padding:18px}
+@media(max-width:480px){.mr{grid-template-columns:1fr 56px 78px auto}.bar2{grid-template-columns:76px 1fr 70px}.tiles{gap:8px}.tile .big{font-size:1.5rem}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+<header><div class="logo">UAD<i>kit</i></div><button class="btn alt" id="th" aria-label="Ganti tema terang atau gelap">🌓 Tema</button></header>
+
+<section class="panel on" id="p-home">
+  <div class="g g2">
+    <div class="term"><div class="bar"><b></b><b></b><b></b>&nbsp;mahasiswa@uad:~</div><pre id="tm"></pre></div>
+    <div class="card"><div class="clk" id="clk">00:00:00</div><small id="dt"></small>
+      <h1 id="hi" style="margin-top:10px">Halo!</h1>
+      <p class="mut" style="margin:8px 0 0">Satu tempat buat ngatur tugas, fokus, IPK, uang saku, dan nentuin makan hari ini. Semua tersimpan di perangkatmu.</p></div>
+  </div>
+  <div class="card" style="margin-top:14px"><div class="row" style="justify-content:space-between;align-items:center"><h3 id="rk">Maba Penasaran</h3><small id="xl">Level 1</small></div>
+    <div class="xp"><i id="xb" style="width:0"></i></div>
+    <small>Selesaikan tugas (+20 XP) dan sesi fokus (+30 XP) buat naik pangkat.</small>
+    <div class="row" style="margin-top:10px"><input id="nm" placeholder="Nama panggilanmu" maxlength="20" aria-label="Nama panggilan"></div></div>
+  <div class="tiles" style="margin-top:14px">
+    <button class="card tile" data-go="tugas"><span class="big" id="s1">0</span><small>tugas aktif</small></button>
+    <button class="card tile" data-go="kas"><span class="big" id="s2">Rp0</span><small>saldo kas</small></button>
+    <button class="card tile" data-go="fokus"><span class="big" id="s3">0</span><small>sesi fokus hari ini</small></button>
+  </div>
+  <div class="card" style="margin-top:14px"><h3>Pengingat hari ini</h3><p id="qt" style="font-size:1.1rem;margin:8px 0 12px"></p><button class="btn pk" id="qb">Ganti kutipan</button></div>
+</section>
+
+<section class="panel" id="p-tugas">
+  <h2>📝 Tugas dan deadline</h2>
+  <div class="card"><div class="row"><input id="tn" placeholder="Misal: Laporan praktikum Basis Data" aria-label="Nama tugas"><input id="td" type="date" aria-label="Tenggat"><select id="tp" aria-label="Prioritas"><option value="0">😌 Santai</option><option value="1">⚡ Penting</option><option value="2">🔥 Darurat</option></select><button class="btn" id="ta">Tambah tugas</button></div></div>
+  <div class="list" id="tl"></div>
+</section>
+
+<section class="panel" id="p-fokus">
+  <h2>⏱️ Mode fokus</h2>
+  <div class="card"><div class="row" style="justify-content:center;margin-bottom:10px"><button class="chip on" data-m="f">Fokus 25</button><button class="chip" data-m="s">Santai 5</button><button class="chip" data-m="l">Panjang 15</button></div>
+    <svg class="ring" viewBox="0 0 120 120" role="img" aria-label="Penghitung waktu"><circle class="tr" cx="60" cy="60" r="54" fill="none" stroke-width="9"/><circle class="pg" id="rg" cx="60" cy="60" r="54" fill="none" stroke-width="9" stroke-linecap="round" stroke-dasharray="339.3" stroke-dashoffset="0" transform="rotate(-90 60 60)"/><text x="60" y="71" text-anchor="middle" id="pt">25:00</text></svg>
+    <p class="mut" id="pg" style="text-align:center;margin:8px 0 14px">HP ditelungkupkan, tab sosmed ditutup 📵</p>
+    <div class="row" style="justify-content:center"><button class="btn" id="ps">Mulai</button><button class="btn alt" id="pr">Reset</button></div></div>
+  <p class="mut" style="text-align:center">Teknik Pomodoro: fokus penuh, lalu istirahat singkat. Cocok buat ngoding dan belajar UTS.</p>
+</section>
+
+<section class="panel" id="p-ipk">
+  <h2>🎓 Kalkulator IPS dan IPK</h2>
+  <div class="g g2">
+    <div class="card"><h3 style="margin-bottom:10px">Mata kuliah semester ini</h3><div id="mt"></div><button class="btn" id="ma">Tambah matkul</button>
+      <h3 style="margin:16px 0 8px">Riwayat sebelumnya (opsional)</h3><div class="row"><input id="pi" type="number" step="0.01" min="0" max="4" placeholder="IPK sekarang" aria-label="IPK sebelumnya"><input id="pk" type="number" min="0" placeholder="Total SKS" aria-label="Total SKS sebelumnya"></div></div>
+    <div class="card res" style="background:var(--a3);color:var(--on)"><small>IPS semester ini</small><span class="big" id="r1">0.00</span><small style="margin-top:14px">IPK kumulatif</small><span class="big" id="r2">0.00</span><p style="font:600 1rem Figtree;margin:12px 0 0" id="r3"></p><small style="margin-top:10px">Memakai skala bobot umum (A=4 sampai E=0). Cek ketentuan resmi kampus untuk angka pastinya.</small></div>
+  </div>
+</section>
+
+<section class="panel" id="p-kas">
+  <h2>💸 Kas anak kos</h2>
+  <div class="card"><div class="row"><select id="kt" aria-label="Jenis"><option value="k">Keluar</option><option value="m">Masuk</option></select><input id="kn" type="number" min="0" placeholder="Nominal (Rp)" aria-label="Nominal"><input id="kd" placeholder="Untuk apa?" aria-label="Keterangan"><select id="kc" aria-label="Kategori"><option>🍜 Makan</option><option>🏠 Kos</option><option>📶 Kuota</option><option>🎓 Kampus</option><option>🎮 Hiburan</option><option>📦 Lainnya</option></select><button class="btn" id="ka">Catat</button></div></div>
+  <div class="tiles" style="margin-top:14px"><div class="card tile"><span class="big" id="k1">Rp0</span><small>masuk</small></div><div class="card tile"><span class="big" id="k2">Rp0</span><small>keluar</small></div><div class="card tile"><span class="big" id="k3">Rp0</span><small>sisa</small></div></div>
+  <div class="card" style="margin-top:14px"><h3 style="margin-bottom:8px">Pengeluaran per kategori</h3><div id="kb"></div></div>
+  <div class="list" id="kl"></div>
+</section>
+
+<section class="panel" id="p-makan">
+  <h2>🍜 Makan apa hari ini?</h2>
+  <div class="row" style="margin-bottom:14px"><button class="chip on" data-l="0">Bebas</button><button class="chip" data-l="10">Mulai ≤ Rp10 rb</button><button class="chip" data-l="15">Mulai ≤ Rp15 rb</button></div>
+  <div class="card food" id="mk"><div class="em">🤔</div><div class="big">Bingung?</div><small>Biar nasib yang memutuskan.</small></div>
+  <p style="text-align:center;margin-top:16px"><button class="btn pk" id="mb">Acak menu</button></p>
+</section>
+<p class="mut" style="text-align:center;margin-top:30px"><small>Dibuat untuk mahasiswa Informatika Universitas Ahmad Dahlan, Yogyakarta ☕</small></p>
+</main>
+
+<nav class="dock" aria-label="Menu utama">
+<button class="on" data-t="home"><span>🏠</span>Beranda</button><button data-t="tugas"><span>📝</span>Tugas</button><button data-t="fokus"><span>⏱️</span>Fokus</button><button data-t="ipk"><span>🎓</span>IPK</button><button data-t="kas"><span>💸</span>Kas</button><button data-t="makan"><span>🍜</span>Makan</button>
+</nav>
+<div id="toast" role="status"></div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const K='uadkit1',today=()=>new Date().toLocaleDateString('sv-SE'),rp=n=>'Rp'+Math.round(n).toLocaleString('id-ID');
+let S={name:'',tasks:[],xp:0,f:{d:'',n:0},mk:[{n:'Pemrograman Web',s:3,g:'A'},{n:'Basis Data',s:3,g:'B+'}],pk:{i:'',s:''},kas:[]};
+try{Object.assign(S,JSON.parse(localStorage.getItem(K)||'{}'))}catch(e){}
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}};
+let tt;const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('s');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('s'),1800)};
+const xp=n=>{S.xp+=n;save();toast('+'+n+' XP ✨');rHome()};
+
+/* tema */
+$('#th').onclick=()=>{const d=document.documentElement,cur=d.dataset.theme||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'),n=cur=='dark'?'light':'dark';d.dataset.theme=n;try{localStorage.setItem('uadtheme',n)}catch(e){}};
+
+/* navigasi */
+function go(t){$$('.panel').forEach(p=>p.classList.toggle('on',p.id=='p-'+t));$$('.dock button').forEach(b=>b.classList.toggle('on',b.dataset.t==t));scrollTo({top:0});if(t=='home')rHome()}
+$$('.dock button').forEach(b=>b.onclick=()=>go(b.dataset.t));$$('[data-go]').forEach(b=>b.onclick=()=>go(b.dataset.go));
+
+/* beranda */
+const Q=["Bug itu bukan musuh, dia guru yang nggak sabaran.","Commit kecil tiap hari lebih aman daripada begadang sekali jadi.","Tugas yang dicicil 20 menit sehari nggak akan jadi monster di H-1.","Istirahat itu bagian dari proses, bukan hadiah setelahnya.","Backup dulu, baru berani eksperimen.","Bertanya di kelas adalah cara tercepat men-debug pemahaman.","Kode yang rapi hari ini menyelamatkan dirimu di bulan depan."];
+const greet=()=>{const h=new Date().getHours();return h<4?'Masih begadang? Jangan lupa tidur':h<11?'Selamat pagi':h<15?'Selamat siang':h<18?'Selamat sore':'Selamat malam'};
+const RK=['Maba Penasaran','Pejuang Praktikum','Debugger Handal','Dewa Deadline','Senior Dev','Arsitek Sistem'];
+function rHome(){const l=Math.floor(S.xp/100);$('#rk').textContent=RK[Math.min(l,5)];$('#xl').textContent='Level '+(l+1)+' ('+S.xp+' XP)';$('#xb').style.width=S.xp%100+'%';
+ $('#hi').textContent=greet()+(S.name?', '+S.name:'')+'!';
+ $('#s1').textContent=S.tasks.filter(t=>!t.done).length;$('#s2').textContent=rp(saldo());$('#s3').textContent=S.f.d==today()?S.f.n:0}
+$('#nm').value=S.name;$('#nm').oninput=e=>{S.name=e.target.value.trim();save();rHome()};
+const rq=()=>$('#qt').textContent='“'+Q[Math.random()*Q.length|0]+'”';$('#qb').onclick=rq;
+const tick=()=>{const d=new Date();$('#clk').textContent=d.toLocaleTimeString('id-ID',{hour12:false}).replace(/\./g,':');$('#dt').textContent=d.toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'})};
+function type(L){const el=$('#tm');let i=0,j=0,o='';(function t(){if(i>=L.length){el.innerHTML=esc(o)+'<span class="cur">█</span>';return}const s=L[i];o+=s[j++]||'';if(j>s.length){o+='\n';i++;j=0}el.innerHTML=esc(o)+'<span class="cur">█</span>';setTimeout(t,s[0]=='$'?40:16)})()}
+
+/* tugas */
+const PR=['Santai','Penting','Darurat'],PC=['l','','u'];
+function rTasks(){const T=[...S.tasks].sort((a,b)=>a.done-b.done||((a.d||'9')<(b.d||'9')?-1:1)),t0=new Date(today()+'T00:00');
+ $('#tl').innerHTML=T.length?T.map(t=>{let c='tanpa tenggat';if(t.d){const d=Math.round((new Date(t.d+'T00:00')-t0)/864e5);c=d<0?'telat '+(-d)+' hari':d==0?'hari ini!':d==1?'besok':'H-'+d}
+ return `<div class="it ${t.done?'dn':''}"><button class="ck" data-a="tk" data-i="${t.id}" aria-label="Tandai selesai">${t.done?'✔':''}</button><div><b>${esc(t.t)}</b><small><span class="tag ${PC[t.p]}">${PR[t.p]}</span> ${c}</small></div><button class="x" data-a="tx" data-i="${t.id}" aria-label="Hapus">✕</button></div>`}).join(''):'<div class="empty">Belum ada tugas. Tulis satu di atas, mulai dari yang paling dekat deadline.</div>'}
+$('#ta').onclick=()=>{const v=$('#tn').value.trim();if(!v)return $('#tn').focus();S.tasks.push({id:Date.now(),t:v,d:$('#td').value,p:+$('#tp').value,done:0});$('#tn').value='';save();rTasks();rHome()};
+$('#tn').onkeydown=e=>e.key=='Enter'&&$('#ta').click();
+
+/* pomodoro */
+const M={f:25,s:5,l:15},MSG={f:'HP ditelungkupkan, tab sosmed ditutup 📵',s:'Minum air dan regangkan badan 🧘',l:'Istirahat panjang, kamu pantas dapat ini 🛋️'};
+let pm='f',left=1500,tot=1500,tm=null,end=0;
+function pdraw(){const m=Math.floor(left/60),s=left%60;$('#pt').textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');$('#rg').style.strokeDashoffset=339.3*(1-left/tot)}
+function pstop(){clearInterval(tm);tm=null;$('#ps').textContent='Mulai'}
+function pset(m){pstop();pm=m;tot=left=M[m]*60;$$('[data-m]').forEach(b=>b.classList.toggle('on',b.dataset.m==m));$('#pg').textContent=MSG[m];pdraw()}
+$$('[data-m]').forEach(b=>b.onclick=()=>pset(b.dataset.m));$('#pr').onclick=()=>pset(pm);
+$('#ps').onclick=()=>{if(tm)return pstop();end=Date.now()+left*1e3;$('#ps').textContent='Jeda';tm=setInterval(()=>{left=Math.max(0,Math.ceil((end-Date.now())/1e3));pdraw();if(!left){pstop();pdone()}},250)};
+function pdone(){try{const c=new AudioContext(),o=c.createOscillator();o.connect(c.destination);o.frequency.value=880;o.start();setTimeout(()=>{o.stop();c.close()},400)}catch(e){}
+ if(pm=='f'){if(S.f.d!=today())S.f={d:today(),n:0};S.f.n++;xp(30)}else toast('Waktu istirahat selesai');$('#pg').textContent='Selesai! Pilih mode berikutnya.'}
+
+/* IPK */
+const G={'A':4,'A-':3.75,'B+':3.5,'B':3,'B-':2.75,'C+':2.5,'C':2,'D':1,'E':0};
+function rMk(){$('#mt').innerHTML=S.mk.map((m,i)=>`<div class="mr"><input data-k="n" data-i="${i}" value="${esc(m.n)}" placeholder="Mata kuliah" aria-label="Mata kuliah"><input data-k="s" data-i="${i}" type="number" min="1" max="6" value="${m.s}" aria-label="SKS"><select data-k="g" data-i="${i}" aria-label="Nilai">${Object.keys(G).map(g=>`<option ${g==m.g?'selected':''}>${g}</option>`).join('')}</select><button class="x" data-a="mx" data-i="${i}" aria-label="Hapus matkul">✕</button></div>`).join('');calc()}
+function calc(){let sk=0,pt=0;S.mk.forEach(m=>{sk+=m.s||0;pt+=(m.s||0)*G[m.g]});const ips=sk?pt/sk:0,ps=+S.pk.s||0,pi=+S.pk.i||0,ik=(sk+ps)?(pt+pi*ps)/(sk+ps):0;
+ $('#r1').textContent=ips.toFixed(2);$('#r2').textContent=ik.toFixed(2);$('#r3').textContent=!sk?'Tambahkan matkul dulu.':ips>=3.5?'Kelas dewa. Pertahankan! 🔥':ips>=3?'Solid, sedikit lagi naik 📈':ips>=2.5?'Aman, masih bisa ditingkatkan 💪':'Saatnya strategi: ngobrol dengan dosen PA 🤝'}
+$('#ma').onclick=()=>{S.mk.push({n:'',s:3,g:'A'});save();rMk()};
+$('#pi').value=S.pk.i;$('#pk').value=S.pk.s;$('#pi').oninput=e=>{S.pk.i=e.target.value;save();calc()};$('#pk').oninput=e=>{S.pk.s=e.target.value;save();calc()};
+
+/* kas */
+const saldo=()=>S.kas.reduce((a,k)=>a+(k.t=='m'?k.n:-k.n),0);
+function rKas(){const m=S.kas.filter(k=>k.t=='m').reduce((a,k)=>a+k.n,0),o=S.kas.filter(k=>k.t=='k'),ko=o.reduce((a,k)=>a+k.n,0);
+ $('#k1').textContent=rp(m);$('#k2').textContent=rp(ko);$('#k3').textContent=rp(m-ko);
+ const by={};o.forEach(k=>by[k.c]=(by[k.c]||0)+k.n);const mx=Math.max(1,...Object.values(by));
+ $('#kb').innerHTML=Object.keys(by).length?Object.entries(by).sort((a,b)=>b[1]-a[1]).map(([c,v])=>`<div class="bar2"><span>${esc(c)}</span><i style="width:${Math.max(6,v/mx*100)}%"></i><span>${rp(v)}</span></div>`).join(''):'<div class="empty">Belum ada pengeluaran.</div>';
+ $('#kl').innerHTML=[...S.kas].reverse().slice(0,10).map(k=>`<div class="it"><span style="font-size:1.4rem">${k.t=='m'?'💰':esc(k.c.split(' ')[0])}</span><div><b>${esc(k.d||'Tanpa keterangan')}</b><small>${k.t=='m'?'+':'-'}${rp(k.n)}</small></div><button class="x" data-a="kx" data-i="${k.id}" aria-label="Hapus">✕</button></div>`).join('');rHome()}
+$('#ka').onclick=()=>{const n=+$('#kn').value;if(!n||n<0)return $('#kn').focus();S.kas.push({id:Date.now(),t:$('#kt').value,n,d:$('#kd').value.trim(),c:$('#kc').value});$('#kn').value=$('#kd').value='';save();rKas()};
+
+/* makan */
+const F=[['🍢','Nasi kucing dan gorengan angkringan',5,12,'Ngobrol sampai larut, kantong tetap aman'],['🍜','Indomie telur ala burjo',8,14,'Klasik begadang tugas'],['🍳','Nasi telur ceplok dan sambal',7,10,'Penyelamat akhir bulan'],['🍗','Ayam geprek',12,20,'Tambah level pedasnya sesuai nyali'],['🍲','Mie ayam bakso',10,16,'Hangat dan mengenyangkan'],['🥘','Gudeg',15,25,'Sekali-sekali, kan lagi di Jogja'],['🍛','Soto ayam',10,15,'Kuah panas cocok buat hari hujan'],['🍝','Bakmi Jawa',18,28,'Hadiah setelah deadline lewat'],['🌶️','Seblak',12,18,'Siapkan air minum'],['🍞','Roti bakar dan wedang',10,18,'Teman nugas panjang'],['🐟','Pecel lele',14,20,'Sambalnya yang bikin balik lagi']];
+let lim=0;$$('[data-l]').forEach(b=>b.onclick=()=>{lim=+b.dataset.l;$$('[data-l]').forEach(x=>x.classList.toggle('on',x==b))});
+const show=f=>$('#mk').innerHTML=`<div class="em">${f[0]}</div><div class="big">${f[1]}</div><b>Rp${f[2]}-${f[3]} rb</b><br><small>${f[4]}</small>`;
+$('#mb').onclick=()=>{const L=F.filter(f=>!lim||f[2]<=lim),c=$('#mk');let n=0;c.classList.remove('win');const t=setInterval(()=>{show(L[Math.random()*L.length|0]);if(++n>16){clearInterval(t);c.classList.add('win')}},80)};
+
+/* aksi bersama */
+document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,i=+b.dataset.i;
+ if(a=='tk'){const t=S.tasks.find(x=>x.id==i);t.done=t.done?0:1;save();rTasks();if(t.done)xp(20);else rHome()}
+ if(a=='tx'){S.tasks=S.tasks.filter(x=>x.id!=i);save();rTasks();rHome()}
+ if(a=='mx'){S.mk.splice(i,1);save();rMk()}
+ if(a=='kx'){S.kas=S.kas.filter(x=>x.id!=i);save();rKas()}});
+document.addEventListener('input',e=>{const d=e.target.dataset;if(d.k){S.mk[d.i][d.k]=d.k=='s'?+e.target.value:e.target.value;save();calc()}});
+
+/* mulai */
+rq();tick();setInterval(tick,1000);rTasks();rMk();rKas();rHome();
+type(['$ whoami','mahasiswa informatika, UAD Yogyakarta','$ status --hari-ini',greet()+(S.name?', '+S.name:'')+'. Yuk atur harimu.','$ ./mulai.sh']);
+</script>
+</body>
+</html>
